@@ -1,0 +1,28 @@
+Flownative:
+  Auth0:
+    domain: example.eu.auth0.com
+    clientId: YOUR_CLIENT_ID
+    clientSecret: YOUR_CLIENT_SECRET
+    redirectUri: https://example.com/callback
+
+    persistIdToken: true
+    persistAccessToken: true
+    persistRefreshToken: true
+
+
+Neos:
+  Flow:
+    mvc:
+      routes:
+        'Flownative.Auth0': true
+        'Neos.Flow':
+          'position': 'after Flownative.Auth0'
+
+    security:
+      authentication:
+        providers:
+          Auth0Provider:
+            label: 'Auth0 Provider'
+            provider: Flownative\Auth0\Authentication\Auth0Provider
+            entryPoint: Flownative\Auth0\Authentication\Auth0EntryPoint
+            entryPointOptions: []
