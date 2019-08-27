@@ -1,0 +1,6 @@
+Flownative\Auth0\Api\Management:
+  arguments:
+    1:
+      setting: Flownative.Auth0.token
+    2:
+      setting: Flownative.Auth0.domain
