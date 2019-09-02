@@ -1,6 +1,25 @@
 Flownative\Auth0\Api\Management:
   arguments:
     1:
-      setting: Flownative.Auth0.token
+      object:
+        factoryObjectName: Flownative\Auth0\OAuth\TokenService
+        factoryMethodName: getToken
+        arguments:
+          1:
+            setting: Flownative.Auth0.domain
+          2:
+            setting: Flownative.Auth0.clientId
+          3:
+            setting: Flownative.Auth0.clientSecret
     2:
       setting: Flownative.Auth0.domain
+
+Flownative\Auth0\OAuth\OAuthClient:
+  properties:
+    stateCache:
+      object:
+        factoryObjectName: Neos\Flow\Cache\CacheManager
+        factoryMethodName: getCache
+        arguments:
+          1:
+            value: Flownative_OAuth2_Client_State

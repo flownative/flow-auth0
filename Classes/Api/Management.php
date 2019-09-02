@@ -24,4 +24,14 @@ use Neos\Flow\Annotations as Flow;
  */
 class Management extends \Auth0\SDK\API\Management
 {
+    /**
+     * @param $token
+     * @param $domain
+     * @param array $guzzleOptions
+     * @param null $returnType
+     */
+    public function __construct($token, $domain, $guzzleOptions = [], $returnType = null)
+    {
+        parent::__construct((string)$token, $domain, $guzzleOptions, $returnType);
+    }
 }
