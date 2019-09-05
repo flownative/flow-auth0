@@ -1,0 +1,16 @@
+Neos:
+  Flow:
+    mvc:
+      routes:
+        'Flownative.Auth0': true
+        'Neos.Flow':
+          'position': 'after Flownative.Auth0'
+
+    security:
+      authentication:
+        providers:
+          Auth0Provider:
+            label: 'Auth0 Provider'
+            provider: Flownative\Auth0\Authentication\Auth0Provider
+            entryPoint: Flownative\Auth0\Authentication\Auth0EntryPoint
+            entryPointOptions: []
